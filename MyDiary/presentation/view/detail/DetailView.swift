@@ -10,19 +10,21 @@ import SwiftUI
 struct DetailView: View {
     let note: Note
     var body: some View {
-        VStack(alignment: .center, spacing: 100){
+        VStack(alignment: .center, spacing: 0){
             VStack(alignment: .leading, spacing: 0){
                 EvaluateView(
                     evaluate: note.evaluate,
-                    isEditable: false
+                    isEditable: false,
+                    size: 25.0
                 ) { result in }
-                .padding(5)
             }
-            Text(note.story)
+            Spacer(minLength: .some(30))
+            ScrollView{
+                Text(note.story)
+            }
             Spacer()
         }
         .navigationTitle(note.title)
-        .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Text(note.date))
     }
 }

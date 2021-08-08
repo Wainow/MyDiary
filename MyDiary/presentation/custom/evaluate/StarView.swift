@@ -11,6 +11,7 @@ struct StarView: View {
     var viewModel: StarViewModel
     var evaluate: Int
     var isEditable: Bool
+    var size: CGFloat = 25.0
     var sendResult: (Int) -> Void
     
     var body: some View {
@@ -23,7 +24,7 @@ struct StarView: View {
             Image(viewModel.starImages[evaluate-1])
                 .resizable()
                 .scaledToFit()
-                .frame(width: 25.0, height: 25.0)
+                .frame(width: size, height: size)
         }
     }
 }

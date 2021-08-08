@@ -26,45 +26,48 @@ struct NewNoteView: View {
     var body: some View {
         EvaluateView(
             evaluate: viewModel.todayNote.evaluate,
-            isEditable: true 
+            isEditable: true,
+            size: 25.0
         ) { result in
             evaluate = result
         }
         VStack(alignment: .leading){
-            VStack(alignment: .leading){
-                Text("Title:")
-                        .font(.callout)
-                        .bold()
-                MultilineTextField(
-                    "Enter title of day",
-                    text:self.$title
-                ).overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
-            }
-            VStack(alignment: .leading){
-                Text("Description:")
-                        .font(.callout)
-                        .bold()
-                MultilineTextField(
-                    "Enter description of day",
-                    text:self.$story
-                ).overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
-            }
-            VStack(alignment: .leading){
-                Button(action: {
-                    MyAlert().getTagAlert { result in
-                        if(!result.isEmpty
-                            && !result.deleteAllSpacers().isEmpty
-                        ){
-                            tags.append(result.deleteIncorrectSpacers())
+            ScrollView{
+                VStack(alignment: .leading){
+                    Text("Title:")
+                            .font(.callout)
+                            .bold()
+                    MultilineTextField(
+                        "Enter title of day",
+                        text:self.$title
+                    ).overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
+                }
+                VStack(alignment: .leading){
+                    Text("Description:")
+                            .font(.callout)
+                            .bold()
+                    MultilineTextField(
+                        "Enter description of day",
+                        text:self.$story
+                    ).overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray))
+                }
+                VStack(alignment: .leading){
+                    Button(action: {
+                        MyAlert().getTagAlert { result in
+                            if(!result.isEmpty
+                                && !result.deleteAllSpacers().isEmpty
+                            ){
+                                tags.append(result.deleteIncorrectSpacers())
+                            }
                         }
-                    }
-                }) { Text("Add tag") }
-                TagListView(tags: $tags, deleteTagAction: { index in
-                    print("index: \(index) tag: \(tags[index])")
-                    tags.remove(at: index)
-                    print("tags: \(tags)")
-                })
-                Spacer()
+                    }) { Text("Add tag") }
+                    TagListView(tags: $tags, deleteTagAction: { index in
+                        print("index: \(index) tag: \(tags[index])")
+                        tags.remove(at: index)
+                        print("tags: \(tags)")
+                    })
+                    Spacer()
+                }
             }
         }.padding()
         .navigationTitle(title)

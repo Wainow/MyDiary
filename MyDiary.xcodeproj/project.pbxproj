@@ -26,6 +26,7 @@
 		8F4AFE0F26A73E12009F61E3 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4AFE0E26A73E12009F61E3 /* StarView.swift */; };
 		8F8A31A626B1C57C00D8291F /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8A31A526B1C57C00D8291F /* TagListView.swift */; };
 		8F8A31A826B1C58D00D8291F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8A31A726B1C58D00D8291F /* TagView.swift */; };
+		8FB25A0126BFE71100F00748 /* CellListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB25A0026BFE71100F00748 /* CellListView.swift */; };
 		8FB79A2A26A47D66006B796C /* EvaluateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB79A2926A47D66006B796C /* EvaluateView.swift */; };
 		8FB79A2C26A47F4B006B796C /* StarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB79A2B26A47F4B006B796C /* StarViewModel.swift */; };
 		8FC45227269214AF00DA1750 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC45226269214AF00DA1750 /* MultilineTextField.swift */; };
@@ -58,6 +59,7 @@
 		8F4AFE0E26A73E12009F61E3 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		8F8A31A526B1C57C00D8291F /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		8F8A31A726B1C58D00D8291F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		8FB25A0026BFE71100F00748 /* CellListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellListView.swift; sourceTree = "<group>"; };
 		8FB79A2926A47D66006B796C /* EvaluateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateView.swift; sourceTree = "<group>"; };
 		8FB79A2B26A47F4B006B796C /* StarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewModel.swift; sourceTree = "<group>"; };
 		8FC45226269214AF00DA1750 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		8F212E46269213BE00F39615 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8FB259FE26BFDC4500F00748 /* list */,
 				8FC4522D26921F5100DA1750 /* detail */,
 				8FC45228269215E500DA1750 /* new */,
 				8F212E172692083D00F39615 /* ContentView.swift */,
@@ -222,12 +225,31 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		8FB259FE26BFDC4500F00748 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				8FC4522E26921F7700DA1750 /* TopView.swift */,
+				8FC4523026921FD100DA1750 /* CellView.swift */,
+				8FB25A0026BFE71100F00748 /* CellListView.swift */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		8FB259FF26BFDC6500F00748 /* evaluate */ = {
+			isa = PBXGroup;
+			children = (
+				8FB79A2B26A47F4B006B796C /* StarViewModel.swift */,
+				8F4AFE0E26A73E12009F61E3 /* StarView.swift */,
+				8FB79A2926A47D66006B796C /* EvaluateView.swift */,
+			);
+			path = evaluate;
+			sourceTree = "<group>";
+		};
 		8FC452252692149B00DA1750 /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				8FB259FF26BFDC6500F00748 /* evaluate */,
 				8FC45226269214AF00DA1750 /* MultilineTextField.swift */,
-				8FC4522E26921F7700DA1750 /* TopView.swift */,
-				8FC4523026921FD100DA1750 /* CellView.swift */,
 				8FEA47AF26AF357A00E268E0 /* MyAlert.swift */,
 			);
 			path = custom;
@@ -237,9 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				8FC452292692160E00DA1750 /* NewNoteView.swift */,
-				8FB79A2926A47D66006B796C /* EvaluateView.swift */,
-				8F4AFE0E26A73E12009F61E3 /* StarView.swift */,
-				8FB79A2B26A47F4B006B796C /* StarViewModel.swift */,
 				8F8A31A526B1C57C00D8291F /* TagListView.swift */,
 				8F8A31A726B1C58D00D8291F /* TagView.swift */,
 			);
@@ -353,6 +372,7 @@
 				8F212E3A26920BD100F39615 /* NoteObjectToNoteMapper.swift in Sources */,
 				8F8A31A626B1C57C00D8291F /* TagListView.swift in Sources */,
 				8FC4523626922BE300DA1750 /* NoteToNoteObjectMapper.swift in Sources */,
+				8FB25A0126BFE71100F00748 /* CellListView.swift in Sources */,
 				8F212E3826920B5200F39615 /* NoteObject.swift in Sources */,
 				8F8A31A826B1C58D00D8291F /* TagView.swift in Sources */,
 			);

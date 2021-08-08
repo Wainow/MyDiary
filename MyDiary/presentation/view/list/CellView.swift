@@ -11,8 +11,8 @@ struct CellView: View {
     var note: Note
     var body: some View {
         VStack{
-            TopView(title: note.title, date: note.date)
-            Text(note.story)
+            TopView(title: note.title, date: note.date, evaluate: note.evaluate)
+            Text(note.story).italic().lineLimit(2)
         }
     }
 }

@@ -11,10 +11,12 @@ struct EvaluateView: View {
     @ObservedObject var viewModel: StarViewModel
     @State var evaluate = 0
     var isEditable: Bool
+    var starSize: CGFloat = 25.0
     var sendResponse: (Int) -> Void
     
     init(evaluate: Int,
          isEditable: Bool,
+         size: CGFloat,
          sendResponse: @escaping (Int) -> Void
     ){
         _evaluate = State(wrappedValue: evaluate)
@@ -25,6 +27,7 @@ struct EvaluateView: View {
             )
         )
         self.isEditable = isEditable
+        self.starSize = size
         self.sendResponse = sendResponse
     }
     
@@ -33,35 +36,40 @@ struct EvaluateView: View {
             StarView(
                 viewModel: viewModel,
                 evaluate: 1,
-                isEditable: isEditable
+                isEditable: isEditable,
+                size: starSize
             ) { result in
                 sendResponse(result)
             }
             StarView(
                 viewModel: viewModel,
                 evaluate: 2,
-                isEditable: isEditable
+                isEditable: isEditable,
+                size: starSize
             ) { result in
                 sendResponse(result)
             }
             StarView(
                 viewModel: viewModel,
                 evaluate: 3,
-                isEditable: isEditable
+                isEditable: isEditable,
+                size: starSize
             ) { result in
                 sendResponse(result)
             }
             StarView(
                 viewModel: viewModel,
                 evaluate: 4,
-                isEditable: isEditable
+                isEditable: isEditable,
+                size: starSize
             ) { result in
                 sendResponse(result)
             }
             StarView(
                 viewModel: viewModel,
                 evaluate: 5,
-                isEditable: isEditable
+                isEditable: isEditable,
+                size: starSize
             ) { result in
                 sendResponse(result)
             }
@@ -75,6 +83,7 @@ struct EvaluateView_Previews: PreviewProvider {
         EvaluateView(
             evaluate: 3,
             isEditable: true,
+            size: 25.0,
             sendResponse: { result in }
         )
     }

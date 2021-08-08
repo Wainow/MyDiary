@@ -9,40 +9,17 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    @ObservedObject var viewModel = NoteViewModel(
-        noteInteractor: NoteInteractorImpl(
-            noteRepository: NoteRepositoryImpl()
-        )
-    )
-    @State var isLinkActive = false
-    
     var body: some View {
-        NavigationView{
-            List(viewModel.notes.reversed()){ note in
-                NavigationLink(destination: DetailView(note: note)){
-                    CellView(note: note)
-                }
+        TabView {
+            CellListView().tabItem {
+                Image(systemName: "doc.plaintext")
+                Text("Home")
             }
-            .navigationBarTitle("My Diary")
-            .navigationBarItems(
-                leading:
-                    Button("Delete all", action: {
-                        MyAlert().getDeleteAlert { result in
-                            if(result) { viewModel.deleteNotes() }
-                        }
-                    }),
-                trailing:
-                        NavigationLink(
-                            destination: NewNoteView(model: viewModel),
-                            isActive: $isLinkActive
-                        ) {
-                            Button(action: {
-                                isLinkActive = true
-                            }) {
-                                Text("Today")
-                            }
-                        }
-            )
+            Text("Home Tab")
+                .font(.system(size: 30, weight: .bold, design: .rounded))
+                .tabItem {
+                    Image(systemName: "search")
+                    Text("Home")}
         }
     }
 }
